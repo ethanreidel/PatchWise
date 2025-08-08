@@ -19,6 +19,7 @@ from .patch_review import (
 from .patch_review.ai_review.ai_review import add_ai_arguments, apply_ai_args
 from .patch_review.kernel_tree import create_git_worktree
 from .patch_review.patch_review import PATCH_PATH
+from .utils.config import parse_config
 
 logger = logging.getLogger(__name__)
 
@@ -81,6 +82,8 @@ def get_commits(repo: Repo, commits: list[str]) -> list[Commit]:
 
 
 def main():
+    configs = parse_config()
+
     args = parse_args()
 
     setup_logger(log_file=args.log_file, log_level=args.log_level)

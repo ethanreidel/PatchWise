@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 from pathlib import Path
+from platformdirs import user_config_dir
 
 # Get the path of the patchwise package
 PACKAGE_PATH = Path(__file__).resolve().parent
@@ -16,3 +17,5 @@ KERNEL_PATH = SANDBOX_PATH / "kernel"
 
 # Ensure the sandbox directory exists
 SANDBOX_PATH.mkdir(parents=True, exist_ok=True)
+
+CONFIG_DIR = Path(user_config_dir())
